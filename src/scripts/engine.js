@@ -33,6 +33,11 @@ const state = {
 
 /**MAPEANDO AS CARTAS INICIO */
 
+const playerSides={
+    player1 : "player-field-card",
+   computer : "computer-field-card",
+
+};
 const pathImages = ".src/assets/icons/";
 const cardData =[
 {
@@ -74,9 +79,27 @@ const cardData =[
 
 /**MAPEANDO AS CARTAS FIM */
 
+/**FUNÇÃO PARA CHAMAR AS CARTAS INICIO*/
+async function drawCards(cardNumbers, fieldSide){
+
+    for( let i =0; i < cardNumbers; i++){
+
+        const randomIdCard = await getRandomCardId();
+
+        const cardImade = await createCardImage(randomIdCard, fieldSide);
+
+    }
+}
+
+/**FUNÇÃO PARA CHAMAR AS CARTAS FIM*/
+
+
 
 /**METODO DE INICIALIZAÇÃO */
 function init(){
+
+    drawCards(5, playerSides.player1);
+    drawCards(5, playerSides.computer);
 
     
 
