@@ -25,26 +25,51 @@
 
 <!--COLOCANDO O VIDEO DO FUNCO PRA RODAR EM LOOP E SEM SOM-->
 <!--NA TAG SOURCE TAMBEM É PASSADO O TIPO DO VIDEO PARA O NAVEGADOR-->
-   <div class="bg-video">
-    <video  class="video" autoplay loop muted>
-        <source src="./src/assets/video/yugi.mp4" type="video/mp4">
+<div class="bg-video">
+    <video class="video" autoplay loop muted>
+      <source src="./src/assets/video/yugi.mp4" type="video/mp4">
     </video>
-   </div>
+  </div>
+  <div class="container">
+    <div class="container__left framed-golden-2">
+      <div class="score_box frame">
+        <img src="./src/assets/icons/audio.png" id="audio-player" class="inactive">
 
-    <div class="container">
+        <span id="score_points">Win: 0 | Lose: 0</span>
 
-        <div class="container__left">
-
-        </div>
-
-
-        <div class="container__right"></div>
-
+        <span></span>
+      </div>
+      <div class="menu_avatar">
+        <img id="card-image">
+      </div>
+      <div class="card_details frame">
+        <p id="card-name">Selecione</p>
+        <p id="card-type">uma carta</p>
+      </div>
     </div>
-
-
-   
-    
+    <div class="container__right">
+      <div class="card-box__container">
+        <div class="card-box framed" id="computer-cards"></div>
+        <div class="card-versus__container">
+          <div class="versus-top">
+            <div class="card-infield">
+              <img id="player-field-card" height="180px" width="125px">
+            </div>
+            <img height="100px" src="./src/assets/icons/millenium2.png">
+            <div class="card-infield">
+              <img id="computer-field-card" height="180px" width="125px">
+            </div>
+          </div>
+          <div class="versus-bottom">
+            <button id="next-duel" class="rpgui-button" onclick="resetDuel()">
+              GANHOU
+            </button>
+          </div>
+        </div>
+        <div class="card-box framed" id="player-cards"></div>
+      </div>
+    </div>
+  </div>
 <!--- JAVASCRIPTY-->
     <script src="./src/scripts/engine.js" defer></script>
 </body>
