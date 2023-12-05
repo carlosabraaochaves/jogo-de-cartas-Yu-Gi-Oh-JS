@@ -103,14 +103,24 @@ async function createCardImage(idCard, fieldSide){
         cardImage.addEventListener("click", () => {
             setCardsField(cardImage.getAttribute("data-id"));
         });
-    }
+    
 
         cardImage.addEventListener("mouseover", ()=> {
             drawSelectDard(idCard);
         });
    
+    }
         return cardImage;
 
+
+
+        async function drawSelectDard(index){
+
+            state.cardSprites.avatar.src =cardData[index].img;
+            state.cardSprites.name.innerText =cardData[index].name;
+            state.cardSprites.type.innerText ="Atribute: " + cardData[index].type;
+
+        }
 }
 
 async function drawCards(cardNumbers, fieldSide){
