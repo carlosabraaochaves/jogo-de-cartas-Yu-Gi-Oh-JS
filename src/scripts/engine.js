@@ -19,7 +19,7 @@ const state = {
 
     fieldCards:{
         player: document.getElementById("player-field-card"),
-        player: document.getElementById("computer-field-card"),
+        computer: document.getElementById("computer-field-card"),
     },
 
     action:{
@@ -113,6 +113,28 @@ async function createCardImage(idCard, fieldSide){
         return cardImage;
 
 
+}
+         async function setCardsField(cardId){
+
+            // await removeAllCardsImages();
+            
+            let computerCardId = await getRandomCardId();
+
+            state.fieldCards.player.style.display = "block";
+            state.fieldCards.computer.style.display ="block";
+
+            state.fieldCards.player.src =cardData[cardId].img;
+            state.fieldCards.computer.src =cardData[computerCardId].img;
+
+            // let duelResults = await checkDuelResults(cardId, computerCardId);
+
+            // await updateScore();
+            // await drawButton();
+
+
+         }
+
+
 
         async function drawSelectDard(index){
 
@@ -121,7 +143,7 @@ async function createCardImage(idCard, fieldSide){
             state.cardSprites.type.innerText ="Atribute: " + cardData[index].type;
 
         }
-}
+    
 
 async function drawCards(cardNumbers, fieldSide){
 
