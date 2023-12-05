@@ -22,10 +22,10 @@
     <title>Jogo de Cartas</title>
 </head>
 <body>
-
-<!--COLOCANDO O VIDEO DO FUNCO PRA RODAR EM LOOP E SEM SOM-->
-<!--NA TAG SOURCE TAMBEM É PASSADO O TIPO DO VIDEO PARA O NAVEGADOR-->
-<div class="bg-video">
+  <audio id="bgm" loop>
+    <source src="./src/assets/audios/egyptian_duel.mp3" type="audio/mp3" />
+  </audio>
+  <div class="bg-video">
     <video class="video" autoplay loop muted>
       <source src="./src/assets/video/yugi.mp4" type="video/mp4">
     </video>
@@ -33,7 +33,7 @@
   <div class="container">
     <div class="container__left framed-golden-2">
       <div class="score_box frame">
-        <img  id="" class="inactive">
+        <img src="./src/assets/icons/audio.png" width="20" height="20" id="audio-player" class="inactive">
 
         <span id="score_points">Win: 0 | Lose: 0</span>
 
@@ -53,11 +53,11 @@
         <div class="card-versus__container">
           <div class="versus-top">
             <div class="card-infield">
-              <img id="player-field-card" height="180px" width="125px"/>
+              <img id="player-field-card" height="180px" width="125px">
             </div>
-            <img height="100px" src="./src/assets/icons/millenium2.png"/>
+            <img height="100px" src="./src/assets/icons/millenium2.png">
             <div class="card-infield">
-              <img id="computer-field-card" height="180px" width="125px"/>
+              <img id="computer-field-card" height="180px" width="125px">
             </div>
           </div>
           <div class="versus-bottom">
@@ -70,7 +70,7 @@
       </div>
     </div>
   </div>
-<!--- JAVASCRIPTY-->
-    <script src="./src/scripts/engine.js" defer></script>
+  <script src="./src/scripts/engine.js" defer></script>
 </body>
+
 </html>
