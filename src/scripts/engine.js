@@ -34,11 +34,11 @@ const state = {
 /**MAPEANDO AS CARTAS INICIO */
 
 const playerSides={
-    player1 : "player-field-card",
-   computer : "computer-field-card",
+    player1 : "player-cards",
+   computer : "computer-cards",
 
 };
-const pathImages = ".src/assets/icons/";
+const pathImages = "./src/assets/icons/";
 const cardData =[
 {
     id:0, name: "Blue Eyes white Dragon", type: "Paper", img: `${pathImages}dragon.png`,
@@ -80,13 +80,48 @@ const cardData =[
 /**MAPEANDO AS CARTAS FIM */
 
 /**FUNÇÃO PARA CHAMAR AS CARTAS INICIO*/
+
+
+async function getRandomCardId(){
+    const randomIndex = Math.floor(Math.random() * cardData.length);
+
+   
+
+    return cardData[randomIndex].id;
+}
+
+async function createCardImage(idCard, fieldSide){
+
+    const cardImage = document.createElement("img");
+
+    cardImage.setAttribute("height","100px");
+    cardImage.setAttribute("src","./src/assets/icons/card-back.png");
+    cardImage.setAttribute("data-id", idCard);
+    cardImage.classList.add("card");
+
+    if(fieldSide === playerSides.player1){
+        cardImage.addEventListener("click", () => {
+            setCardsField(cardImage.getAttribute("data-id"));
+        });
+    }
+
+        cardImage.addEventListener("mouseover", ()=> {
+            drawSelectDard(idCard);
+        });
+   
+        return cardImage;
+
+}
+
 async function drawCards(cardNumbers, fieldSide){
 
     for( let i =0; i < cardNumbers; i++){
 
         const randomIdCard = await getRandomCardId();
 
-        const cardImade = await createCardImage(randomIdCard, fieldSide);
+        const cardImage = await createCardImage(randomIdCard, fieldSide);
+
+        document.getElementById(fieldSide).appendChild(cardImage);
 
     }
 }
